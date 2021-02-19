@@ -1,0 +1,47 @@
+{
+  "name": "taskforce-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --require babel-core/register --require babel-polyfill ./src/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon --require babel-core/register --require babel-polyfill ./src/server.js",
+    "migrate": "sequelize db:migrate",
+    "migrate:undo": "sequelize db:migrate:undo",
+    "migrate:undo:all": "sequelize db:migrate:undo:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "NIYODUSENGA Clement",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "bcrypt": "^5.0.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "joi": "^17.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5",
+    "swagger-ui-express": "^4.1.6",
+    "throng": "^5.0.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0"
+  }
+}
