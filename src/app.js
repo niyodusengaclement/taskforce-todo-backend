@@ -6,6 +6,8 @@ import cookieParser from "cookie-parser";
 import routes from "./routes";
 import env from "dotenv";
 import morgan from "morgan";
+import { serve, setup } from "swagger-ui-express";
+import swaggerDoc from "../swagger.json";
 
 const app = express();
 env.config();
@@ -26,6 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", routes);
+app.use("/api/doc", serve, setup(swaggerDoc));
 
 app.use((req, res, next) => {
   const err = new Error("Endpoint not found");

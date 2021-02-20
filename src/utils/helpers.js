@@ -6,6 +6,13 @@ class Helpers {
     this.options = { expiresIn: "365d" };
   }
 
+  /**
+   * This is a function.
+   *
+   * @param {object} info - The information to put in the payload
+   * @return {string} -return generated token
+   *
+   */
   tokenGenerator(info) {
     try {
       this.payload = {
@@ -21,6 +28,13 @@ class Helpers {
     }
   }
 
+  /**
+   * This is a function.
+   *
+   * @param {string} password - The plain text password
+   * @return {string} -return hashed password
+   *
+   */
   async hashPassword(password) {
     try {
       this.salt = await bcrypt.genSalt(10);

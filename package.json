@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --require babel-core/register --require babel-polyfill ./src/server.js",
+    "start": "npm run migrate:undo:all && npm run migrate && node --require babel-core/register --require babel-polyfill ./src/server.js",
     "dev": "cross-env NODE_ENV=development nodemon --require babel-core/register --require babel-polyfill ./src/server.js",
     "migrate": "sequelize db:migrate",
     "migrate:undo": "sequelize db:migrate:undo",
@@ -34,6 +34,7 @@
     "morgan": "^1.10.0",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
     "swagger-ui-express": "^4.1.6",
     "throng": "^5.0.0",
     "winston": "^3.3.3"
@@ -41,7 +42,6 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "cross-env": "^7.0.3",
-    "nodemon": "^2.0.4",
-    "sequelize-cli": "^6.2.0"
+    "nodemon": "^2.0.4"
   }
 }
