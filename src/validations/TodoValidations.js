@@ -2,6 +2,14 @@ import joi from "joi";
 import { onError, onServerError } from "../utils/response";
 
 class TodosValidations {
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @param {object} next - Pass to the next middleware
+   *
+   */
   Todo(req, res, next) {
     try {
       const validateSchema = joi.object({

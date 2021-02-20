@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Awesomity Taskforce  Backend Challenge 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/niyodusengaclement/taskforce-todo-backend" target="_blank">
+  <a href="https://taskforce-todo.herokuapp.com/api/doc" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
   <a href="#" target="_blank">
@@ -13,10 +13,11 @@
 </p>
 
 > To-do list app that can help you plan, track, and get more tasks done.
+> This app is hosted on Heroku, you can find its documentation on (documentation) link below
 
 ### 🏠 [Homepage](https://github.com/niyodusengaclement/taskforce-todo-backend)
 
-### ✨ [Documentation](https://github.com/niyodusengaclement/taskforce-todo-backend)
+### ✨ [Documentation](https://taskforce-todo.herokuapp.com/api/doc)
 
 ## API ENDPOINTS
 
@@ -82,12 +83,15 @@ npm install
 
 ## Usage
 
+This project built on top of expressJS and postgreSQL as database. So, to make things easy, you need to setup your env variable properly and run `npm start`
+`npm start` will run migrations and start the server or if you want to run on development mode you can just run the following commands
+
 ```sh
 npm run migrate
 ```
 
 ```sh
-npm start
+npm run dev
 ```
 
 ## Run tests

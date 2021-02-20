@@ -4,6 +4,14 @@ import { onError, onServerError, onSuccess } from "../utils/response";
 import db from "../database/models";
 
 class UsersController {
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
   static async login(req, res) {
     try {
       const { username, password } = req.body;
@@ -29,6 +37,14 @@ class UsersController {
     }
   }
 
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
   static async register(req, res) {
     try {
       const { username, password: inputPassword, name } = req.body;

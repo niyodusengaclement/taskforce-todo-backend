@@ -3,6 +3,14 @@ import db from "../database/models";
 import { Op } from "sequelize";
 
 class TodosController {
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
   static async index(req, res) {
     try {
       const { page, size } = req.query;
@@ -30,6 +38,14 @@ class TodosController {
     }
   }
 
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
   static async create(req, res) {
     try {
       const { id: createdBy } = req.user;
@@ -48,6 +64,14 @@ class TodosController {
     }
   }
 
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
   static async findOne(req, res) {
     try {
       const { todo_id } = req.params;
@@ -70,6 +94,14 @@ class TodosController {
     }
   }
 
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
   static async update(req, res) {
     try {
       const { todo_id } = req.params;
@@ -86,6 +118,14 @@ class TodosController {
     }
   }
 
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
   static async delete(req, res) {
     try {
       const { todo_id } = req.params;
