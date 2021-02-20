@@ -17,5 +17,5 @@ routes
   .delete(auth.checkToken, TodosController.delete);
 
 routes.get("/search", auth.checkToken, TodosController.search);
-
+routes.get("/export", auth.checkToken, TodosController.export);
 export default routes;

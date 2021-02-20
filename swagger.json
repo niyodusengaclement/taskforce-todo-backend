@@ -11,8 +11,8 @@
   "host": "taskforce-todo.herokuapp.com",
   "basePath": "/api",
   "schemes": [
-    "http",
-    "https"
+    "https",
+    "http"
   ],
   "consumes": [
     "application/json"
@@ -34,22 +34,39 @@
           "application/json"
         ],
         "consumes": [
-          "application/json"
+          "application/x-www-form-urlencoded"
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
+            "name": "username",
+            "in": "formData",
             "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/LoginRequest"
-            }
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": " Action was successful completed",
+            "headers": {}
+          },
+          "201": {
+            "description": " Action was successful created",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
             "headers": {}
           }
         }
@@ -68,22 +85,42 @@
           "application/json"
         ],
         "consumes": [
-          "application/json"
+          "application/x-www-form-urlencoded"
         ],
         "parameters": [
           {
-            "name": "Body",
-            "in": "body",
+            "name": "name",
+            "in": "formData",
             "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/RegisterRequest"
-            }
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "username",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": ""
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
           }
         ],
         "responses": {
-          "200": {
-            "description": "",
+          "201": {
+            "description": " Action was successful created",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
             "headers": {}
           }
         }
@@ -131,7 +168,19 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": " Action was successful completed",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "401": {
+            "description": "You are not authorized to access this page",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
             "headers": {}
           }
         }
@@ -148,7 +197,7 @@
           "application/json"
         ],
         "consumes": [
-          "application/json"
+          "application/x-www-form-urlencoded"
         ],
         "parameters": [
           {
@@ -159,18 +208,43 @@
             "description": ""
           },
           {
-            "name": "Body",
-            "in": "body",
+            "name": "title",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": ""
+          },
+          {
+            "name": "priority",
+            "in": "formData",
+            "type": "string",
             "required": true,
             "description": "",
-            "schema": {
-              "$ref": "#/definitions/CreateTodoRequest"
-            }
+            "enum": ["LOW", "MEDIUM", "HIGH"]
           }
         ],
         "responses": {
-          "200": {
-            "description": "",
+          "201": {
+            "description": " Action was successful created",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "401": {
+            "description": "You are not authorized to access this page",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
             "headers": {}
           }
         }
@@ -225,7 +299,63 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": " Action was successful completed",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "401": {
+            "description": "You are not authorized to access this page",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/todos/export": {
+      "get": {
+        "description": "",
+        "summary": "Export Todos",
+        "tags": [
+          "Todos"
+        ],
+        "operationId": "ExportTodos",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": " Action was successful completed",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "401": {
+            "description": "You are not authorized to access this page",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
             "headers": {}
           }
         }
@@ -264,7 +394,19 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": " Action was successful completed",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "401": {
+            "description": "You are not authorized to access this page",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
             "headers": {}
           }
         }
@@ -281,7 +423,7 @@
           "application/json"
         ],
         "consumes": [
-          "application/json"
+          "application/x-www-form-urlencoded"
         ],
         "parameters": [
           {
@@ -299,18 +441,43 @@
             "description": "ID of todo to update"
           },
           {
-            "name": "Body",
-            "in": "body",
-            "required": true,
+            "name": "title",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": ""
+          },
+          {
+            "name": "priority",
+            "in": "formData",
+            "required": false,
+            "type": "string",
             "description": "",
-            "schema": {
-              "$ref": "#/definitions/UpdateTodoRequest"
-            }
+            "enum": ["LOW", "MEDIUM", "HIGH"]
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": " Action was successful completed",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "401": {
+            "description": "You are not authorized to access this page",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
             "headers": {}
           }
         }
@@ -347,7 +514,19 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": " Action was successful completed",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "401": {
+            "description": "You are not authorized to access this page",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
             "headers": {}
           }
         }

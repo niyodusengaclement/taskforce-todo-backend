@@ -21,16 +21,17 @@
 
 ## API ENDPOINTS
 
-| Ressource URL       | Methods | Description                                     |
-| ------------------- | ------- | ----------------------------------------------- |
-| /api/auth/register  | POST    | Create user account                             |
-| /api/auth/login     | POST    | Login                                           |
-| /api/todos          | POST    | Create a todo                                   |
-| /api/todos          | GET     | List of all todos                               |
-| /api/todos/:todo_id | GET     | Get a specific todo                             |
-| /api/todos/:todo_id | PUT     | Modify/Edit a specific todo                     |
-| /api/todos/:todo_id | DELETE  | Delete a specific todo                          |
-| /api/todos/search   | GET     | Search a todo by title, description or priority |
+| Ressource URL       | Methods | Description                                     | Authentication required |
+| ------------------- | ------- | ----------------------------------------------- | ----------------------- |
+| /api/auth/register  | POST    | Create user account                             | No                      |
+| /api/auth/login     | POST    | Login                                           | No                      |
+| /api/todos          | POST    | Create a todo                                   | Yes                     |
+| /api/todos          | GET     | List of all todos                               | Yes                     |
+| /api/todos/:todo_id | GET     | Get a specific todo                             | Yes                     |
+| /api/todos/:todo_id | PUT     | Modify/Edit a specific todo                     | Yes                     |
+| /api/todos/:todo_id | DELETE  | Delete a specific todo                          | Yes                     |
+| /api/todos/search   | GET     | Search a todo by title, description or priority | Yes                     |
+| /api/todos/export   | GET     | Export a list of todos in a csv file            | Yes                     |
 
 ## Features
 
@@ -41,13 +42,14 @@
 - Update a specific todo (Created by you)
 - Delete a Delete a specific todo (Created by you)
 - Search a todo by title, description or priority (Created by you)
+- Export to csv a list of todos (Created by you)
 - Validate all required fields by using joi
 - Authenticate by using JSON Web Token (JWT)
 
 ### Testing Framework and Assertion library
 
 ```
- *Mocha* and *Chai*
+ Mocha and Chai
 ```
 
 ### Continuous Integration
@@ -75,7 +77,7 @@ These instructions will get you a copy of this project up and running on your lo
 ## Prerequisites
 
 I assume you already have NodeJS, npm and PostgreSQL installed.
-To install this project on your local machine, you need first to clone the repository `https://github.com/niyodusengaclement/taskforce-todo-backend` and set up the env variable file by filling in the required environment variables (Refer to the env.example file)
+To install this project on your local machine, you need first to clone the repository `https://github.com/niyodusengaclement/taskforce-todo-backend.git` and set up the env variable file by filling in the required environment variables (Refer to the env.example file)
 
 ## Install
 
@@ -85,8 +87,7 @@ npm install
 
 ## Usage
 
-This project built on top of expressJS and postgreSQL as database. So, to make things easy, you need to setup your env variable properly and run `npm start`
-`npm start` will run migrations and start the server or if you want to run on development mode you can just run the following commands
+This project built on top of expressJS and postgreSQL as database. So, to make things easy, you need to setup your env variable properly by by refering to the `env.example` file and then run`npm start` to migaret and start the server accordingly or if you want to run in development mode you can just run the following commands
 
 ```sh
 npm run migrate

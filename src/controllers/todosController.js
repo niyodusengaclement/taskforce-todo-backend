@@ -1,6 +1,8 @@
+import { Op } from "sequelize";
+import moment from "moment";
 import { onError, onServerError, onSuccess } from "../utils/response";
 import db from "../database/models";
-import { Op } from "sequelize";
+import csvGenerator from "../utils/csvGenerator";
 
 class TodosController {
   /**
@@ -191,6 +193,49 @@ class TodosController {
       if (!todo) return onError(res, 404, "Todo not found");
       await todo.destroy(todo_id);
       return onSuccess(res, 200, "todo Successfully deleted");
+    } catch (err) {
+      return onServerError(res, err);
+    }
+  }
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
+  static async export(req, res) {
+    try {
+      db.Todo.findAll({
+        where: { createdBy: req.user.id },
+        order: [["id", "ASC"]],
+      })
+        .then((rows) => {
+          const items = [];
+          rows.map(({ priority, title, description, createdAt }, index) => {
+            const item = {
+              id: index + 1,
+              title,
+              description,
+              priority,
+              createdAt: moment(createdAt).format("DD-MM-YYYY HH:mm:ss"),
+            };
+            return items.push(item);
+          });
+
+          const { data, error } = csvGenerator(items, "My todo list");
+          if (error) return onServerError(res, error);
+          return onSuccess(
+            res,
+            200,
+            "Todos Successfully exported to your downloads directory",
+            data
+          );
+        })
+        .catch((err) => {
+          return onServerError(res, err);
+        });
     } catch (err) {
       return onServerError(res, err);
     }
