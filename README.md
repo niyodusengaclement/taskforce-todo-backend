@@ -21,15 +21,16 @@
 
 ## API ENDPOINTS
 
-| Ressource URL       | Methods | Description                 |
-| ------------------- | ------- | --------------------------- |
-| /api/auth/register  | POST    | Create user account         |
-| /api/auth/login     | POST    | Login                       |
-| /api/todos          | POST    | Create a todo               |
-| /api/todos          | GET     | List of all todos           |
-| /api/todos/:todo_id | GET     | Get a specific todo         |
-| /api/todos/:todo_id | PUT     | Modify/Edit a specific todo |
-| /api/todos/:todo_id | DELETE  | Delete a specific todo      |
+| Ressource URL       | Methods | Description                                     |
+| ------------------- | ------- | ----------------------------------------------- |
+| /api/auth/register  | POST    | Create user account                             |
+| /api/auth/login     | POST    | Login                                           |
+| /api/todos          | POST    | Create a todo                                   |
+| /api/todos          | GET     | List of all todos                               |
+| /api/todos/:todo_id | GET     | Get a specific todo                             |
+| /api/todos/:todo_id | PUT     | Modify/Edit a specific todo                     |
+| /api/todos/:todo_id | DELETE  | Delete a specific todo                          |
+| /api/todos/search   | GET     | Search a todo by title, description or priority |
 
 ## Features
 
@@ -39,6 +40,7 @@
 - Read one or all todos (Created by you)
 - Update a specific todo (Created by you)
 - Delete a Delete a specific todo (Created by you)
+- Search a todo by title, description or priority (Created by you)
 - Validate all required fields by using joi
 - Authenticate by using JSON Web Token (JWT)
 
