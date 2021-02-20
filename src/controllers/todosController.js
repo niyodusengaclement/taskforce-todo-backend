@@ -46,6 +46,60 @@ class TodosController {
    * @return {object} - return a response to the client
    *
    */
+  static async search(req, res) {
+    try {
+      const { page, size, searchHint } = req.query;
+      const limit = !size ? 10 : +size;
+      const offset = !size || !page ? 0 : page * size;
+
+      const todos = await db.Todo.findAndCountAll({
+        where: {
+          [Op.and]: { createdBy: req.user.id },
+          [Op.or]: [
+            {
+              title: {
+                [Op.iLike]: `%${searchHint}%`,
+              },
+            },
+            {
+              description: {
+                [Op.iLike]: `%${searchHint}%`,
+              },
+            },
+            {
+              priority: {
+                [Op.iLike]: `%${searchHint}%`,
+              },
+            },
+          ],
+        },
+        order: [["id", "ASC"]],
+        offset,
+        limit,
+      });
+      const currentPage = page ? +page : 0;
+      const totalPages = Math.ceil(todos.count / limit);
+      const results = {
+        currentPage,
+        totalPages,
+        totalItems: todos.count,
+        itemsPerPage: limit,
+        rows: todos.rows,
+      };
+      return onSuccess(res, 200, "todos Successfully found", results);
+    } catch (err) {
+      return onServerError(res, err);
+    }
+  }
+
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
   static async create(req, res) {
     try {
       const { id: createdBy } = req.user;
