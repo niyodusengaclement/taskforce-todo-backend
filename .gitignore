@@ -4,3 +4,5 @@ node_modules
 .env
 combined.log
 error.log
+.nyc_output/
+coverage/

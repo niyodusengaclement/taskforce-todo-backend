@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run migrate:undo:all && npm run migrate && nyc --reporter=html --reporter=text mocha  --timeout 10000 --require babel-core/register --require babel-polyfill --exit './test/**/*.test.js'",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "start": "npm run migrate:undo:all && npm run migrate && node --require babel-core/register --require babel-polyfill ./src/server.js",
     "dev": "cross-env NODE_ENV=development nodemon --require babel-core/register --require babel-polyfill ./src/server.js",
     "migrate": "sequelize db:migrate",
@@ -22,7 +23,7 @@
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -38,12 +39,17 @@
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
     "swagger-ui-express": "^4.1.6",
-    "throng": "^5.0.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "chai": "^4.3.0",
+    "chai-http": "^4.3.0",
+    "coveralls": "^3.1.0",
     "cross-env": "^7.0.3",
-    "nodemon": "^2.0.4"
+    "mocha": "^8.3.0",
+    "node-mocks-http": "^1.10.1",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0"
   }
 }

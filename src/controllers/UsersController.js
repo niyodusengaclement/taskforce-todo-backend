@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import helpers from "../utils/helpers";
 import { onError, onServerError, onSuccess } from "../utils/response";
 import db from "../database/models";

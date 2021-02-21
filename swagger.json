@@ -145,15 +145,15 @@
           {
             "name": "page",
             "in": "query",
-            "required": true,
+            "required": false,
             "type": "integer",
             "format": "int32",
-            "description": ""
+            "description": "If you want first page write 0."
           },
           {
-            "name": "limit",
+            "name": "size",
             "in": "query",
-            "required": true,
+            "required": false,
             "type": "integer",
             "format": "int32",
             "description": ""
@@ -269,15 +269,15 @@
           {
             "name": "page",
             "in": "query",
-            "required": true,
+            "required": false,
             "type": "integer",
             "format": "int32",
-            "description": ""
+            "description": "If you want first page write 0."
           },
           {
-            "name": "limit",
+            "name": "size",
             "in": "query",
-            "required": true,
+            "required": false,
             "type": "integer",
             "format": "int32",
             "description": ""
