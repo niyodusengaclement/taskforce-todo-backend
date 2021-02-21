@@ -10,6 +10,9 @@
   <a href="https://twitter.com/clementmistico" target="_blank">
     <img alt="Twitter: clementmistico" src="https://img.shields.io/twitter/follow/clementmistico.svg?style=social" />
   </a>
+
+[![Build Status](https://travis-ci.com/niyodusengaclement/taskforce-todo-backend.svg?branch=develop)](https://travis-ci.com/niyodusengaclement/taskforce-todo-backend)
+
 </p>
 
 > To-do list app that can help you plan, track, and get more tasks done.
@@ -45,6 +48,24 @@
 - Export to csv a list of todos (Created by you)
 - Validate all required fields by using joi
 - Authenticate by using JSON Web Token (JWT)
+
+### Language
+
+```
+ Javascript
+```
+
+### Server Environment
+
+```
+ NodeJS (run time Environment for running JS codes)
+```
+
+### Framework
+
+```
+ Express
+```
 
 ### Testing Framework and Assertion library
 
@@ -87,9 +108,9 @@ npm install
 
 ## Usage
 
-This project built on top of expressJS and postgreSQL as database. So, to make things easy, you need to setup your env variable properly by by refering to the `env.example` file and then run`npm start` to migaret and start the server accordingly or if you want to run in development mode you can just run the following commands
+This project built on top of expressJS and postgreSQL as database. So, to make things easy, you need to setup your env variable properly by by refering to the `.env.example` file and then run`npm start` to migrate and start the server accordingly or if you want to run in development mode you can just run the following commands
 
-```sh
+```sh fv
 npm run migrate
 ```
 

@@ -16,7 +16,7 @@ class TodosController {
   static async index(req, res) {
     try {
       const { page, size } = req.query;
-      const limit = !size ? 10 : +size;
+      const limit = !size ? 100 : +size;
       const offset = !size || !page ? 0 : page * size;
 
       const todos = await db.Todo.findAndCountAll({

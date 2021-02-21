@@ -11,6 +11,13 @@ import logger from "./logger";
  *
  */
 export const onSuccess = (res, status_code, message, data) => {
+  if (message === "Login Successfully") {
+    return res.status(status_code).header('x-auth-token', data).json({
+      status: status_code,
+      message,
+      data,
+    });
+  }
   return res.status(status_code).json({
     status: status_code,
     message,
