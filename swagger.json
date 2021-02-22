@@ -248,6 +248,56 @@
             "headers": {}
           }
         }
+      },
+      "put": {
+        "description": "",
+        "summary": "Update All Todo",
+        "tags": [
+          "Todos"
+        ],
+        "operationId": "UpdateAllTodos",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "priority",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "",
+            "enum": ["LOW", "MEDIUM", "HIGH"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": " Action was successful completed",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "401": {
+            "description": "You are not authorized to access this page",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "headers": {}
+          }
+        }
       }
     },
     "/todos/search": {

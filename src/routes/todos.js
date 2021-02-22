@@ -8,6 +8,7 @@ const routes = express.Router();
 routes
   .route("/")
   .get(auth.checkToken, TodosController.index)
+  .put(auth.checkToken, TodosController.updateAllStatus)
   .post(auth.checkToken, TodoValidations.Todo, TodosController.create);
 
 routes

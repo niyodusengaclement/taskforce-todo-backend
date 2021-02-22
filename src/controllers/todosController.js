@@ -182,6 +182,35 @@ class TodosController {
    * @return {object} - return a response to the client
    *
    */
+  static async updateAllStatus(req, res) {
+    try {
+      const { id: createdBy } = req.user;
+      const { priority } = req.body;
+      const { count } = await db.Todo.findAndCountAll({
+        where: { createdBy },
+        order: [["id", "ASC"]],
+      });
+      if (count < 1) return onError(res, 404, "No todo found");
+      await db.Todo.update(
+        {
+          priority,
+        },
+        { where: { createdBy } }
+      );
+      return onSuccess(res, 200, "All Todos status updated successfully");
+    } catch (err) {
+      return onServerError(res, err);
+    }
+  }
+
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
   static async delete(req, res) {
     try {
       const { todo_id } = req.params;

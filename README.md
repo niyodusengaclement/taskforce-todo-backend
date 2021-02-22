@@ -11,7 +11,7 @@
     <img alt="Twitter: clementmistico" src="https://img.shields.io/twitter/follow/clementmistico.svg?style=social" />
   </a>
 
-[![Build Status](https://travis-ci.com/niyodusengaclement/taskforce-todo-backend.svg?branch=develop)](https://travis-ci.com/niyodusengaclement/taskforce-todo-backend) [![Coverage Status](https://coveralls.io/repos/github/niyodusengaclement/taskforce-todo-backend/badge.svg?branch=develop)](https://coveralls.io/github/niyodusengaclement/taskforce-todo-backend?branch=develop)
+[![Build Status](https://travis-ci.com/niyodusengaclement/taskforce-todo-backend.svg?branch=develop)](https://travis-ci.com/niyodusengaclement/taskforce-todo-backend) [![Coverage Status](https://coveralls.io/repos/github/niyodusengaclement/taskforce-todo-backend/badge.svg?branch=develop)](https://coveralls.io/github/niyodusengaclement/taskforce-todo-backend?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/6c26f5a03d74c8fe7514/maintainability)](https://codeclimate.com/github/niyodusengaclement/taskforce-todo-backend/maintainability)
 
 </p>
 
@@ -21,6 +21,11 @@
 ### 🏠 [Homepage](https://github.com/niyodusengaclement/taskforce-todo-backend#welcome-to-awesomity-taskforce--backend-challenge-)
 
 ### ✨ [Documentation](https://taskforce-todo.herokuapp.com/api/doc)
+
+## Busness rules
+
+- In order to use this todo app, you must first create an account and login with your credentials.
+- User should only get access to S/he is todos.
 
 ## API ENDPOINTS
 
@@ -32,7 +37,9 @@
 | /api/todos          | GET     | List of all todos                               | Yes                     |
 | /api/todos/:todo_id | GET     | Get a specific todo                             | Yes                     |
 | /api/todos/:todo_id | PUT     | Modify/Edit a specific todo                     | Yes                     |
+| /api/todos          | PUT     | Modify/Edit all todos' status                   | Yes                     |
 | /api/todos/:todo_id | DELETE  | Delete a specific todo                          | Yes                     |
+| /api/todos          | DELETE  | Delete all todos                                | Yes                     |
 | /api/todos/search   | GET     | Search a todo by title, description or priority | Yes                     |
 | /api/todos/export   | GET     | Export a list of todos in a csv file            | Yes                     |
 
@@ -43,7 +50,9 @@
 - Create a todo
 - Read one or all todos (Created by you)
 - Update a specific todo (Created by you)
+- Update all todos' status (Created by you)
 - Delete a Delete a specific todo (Created by you)
+- Delete all todos (Created by you)
 - Search a todo by title, description or priority (Created by you)
 - Export to csv a list of todos (Created by you)
 - Validate all required fields by using joi
@@ -64,7 +73,7 @@
 ### Framework
 
 ```
- Express
+ Express JS
 ```
 
 ### Testing Framework and Assertion library
@@ -85,10 +94,16 @@ Travis CI
 nyc
 ```
 
-### Git badge
+### Test Coverage badge
 
 ```
 coveralls
+```
+
+### Code maintainability badge
+
+```
+Code climate
 ```
 
 ## Getting started
@@ -110,7 +125,7 @@ npm install
 
 This project built on top of expressJS and postgreSQL as database. So, to make things easy, you need to setup your env variable properly by by refering to the `.env.example` file and then run`npm start` to migrate and start the server accordingly or if you want to run in development mode you can just run the following commands
 
-```sh fv
+```sh
 npm run migrate
 ```
 
@@ -123,6 +138,20 @@ npm run dev
 ```sh
 npm run test
 ```
+
+### Build Docker Image
+
+```
+docker build .
+```
+
+### Start App with Docker
+
+```
+docker-compose up
+```
+
+After running `docker-compose up` app should be running on port 9000
 
 ## Author
 
