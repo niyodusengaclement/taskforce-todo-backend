@@ -11,7 +11,7 @@
     <img alt="Twitter: clementmistico" src="https://img.shields.io/twitter/follow/clementmistico.svg?style=social" />
   </a>
 
-[![Build Status](https://travis-ci.com/niyodusengaclement/taskforce-todo-backend.svg?branch=develop)](https://travis-ci.com/niyodusengaclement/taskforce-todo-backend) [![Coverage Status](https://coveralls.io/repos/github/niyodusengaclement/taskforce-todo-backend/badge.svg?branch=develop)](https://coveralls.io/github/niyodusengaclement/taskforce-todo-backend?branch=develop)
+[![Build Status](https://travis-ci.com/niyodusengaclement/taskforce-todo-backend.svg?branch=develop)](https://travis-ci.com/niyodusengaclement/taskforce-todo-backend) [![Coverage Status](https://coveralls.io/repos/github/niyodusengaclement/taskforce-todo-backend/badge.svg?branch=develop)](https://coveralls.io/github/niyodusengaclement/taskforce-todo-backend?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/6c26f5a03d74c8fe7514/maintainability)](https://codeclimate.com/github/niyodusengaclement/taskforce-todo-backend/maintainability)
 
 </p>
 
@@ -110,7 +110,7 @@ npm install
 
 This project built on top of expressJS and postgreSQL as database. So, to make things easy, you need to setup your env variable properly by by refering to the `.env.example` file and then run`npm start` to migrate and start the server accordingly or if you want to run in development mode you can just run the following commands
 
-```sh fv
+```sh
 npm run migrate
 ```
 
@@ -123,6 +123,20 @@ npm run dev
 ```sh
 npm run test
 ```
+
+### Build Docker Image
+
+```
+docker build .
+```
+
+### Start App with Docker
+
+```
+docker-compose up
+```
+
+After running `docker-compose up` app should be running on port 9000
 
 ## Author
 
