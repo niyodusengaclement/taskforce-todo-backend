@@ -22,6 +22,10 @@
 
 ### ✨ [Documentation](https://taskforce-todo.herokuapp.com/api/doc)
 
+## Busness rules
+- In order to use this todo app, you must first create an account and login with your credentials.
+- User should only get access to S/he is todos.
+
 ## API ENDPOINTS
 
 | Ressource URL       | Methods | Description                                     | Authentication required |
@@ -33,6 +37,7 @@
 | /api/todos/:todo_id | GET     | Get a specific todo                             | Yes                     |
 | /api/todos/:todo_id | PUT     | Modify/Edit a specific todo                     | Yes                     |
 | /api/todos/:todo_id | DELETE  | Delete a specific todo                          | Yes                     |
+| /api/todos | DELETE  | Delete all todos                         | Yes                     |
 | /api/todos/search   | GET     | Search a todo by title, description or priority | Yes                     |
 | /api/todos/export   | GET     | Export a list of todos in a csv file            | Yes                     |
 
@@ -44,6 +49,7 @@
 - Read one or all todos (Created by you)
 - Update a specific todo (Created by you)
 - Delete a Delete a specific todo (Created by you)
+- Delete all todos (Created by you)
 - Search a todo by title, description or priority (Created by you)
 - Export to csv a list of todos (Created by you)
 - Validate all required fields by using joi
@@ -64,7 +70,7 @@
 ### Framework
 
 ```
- Express
+ Express JS
 ```
 
 ### Testing Framework and Assertion library
@@ -85,10 +91,15 @@ Travis CI
 nyc
 ```
 
-### Git badge
+### Test Coverage badge
 
 ```
 coveralls
+```
+### Code maintainability badge
+
+```
+Code climate
 ```
 
 ## Getting started

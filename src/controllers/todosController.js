@@ -197,6 +197,29 @@ class TodosController {
       return onServerError(res, err);
     }
   }
+
+  /**
+   * This is a function.
+   *
+   * @param {object} req - The request object
+   * @param {object} res- The response object
+   * @return {object} - return a response to the client
+   *
+   */
+  static async deleteAll(req, res) {
+    try {
+      const { id: createdBy } = req.user;
+      await db.Todo.destroy({
+        where: {
+          createdBy,
+        },
+      });
+      return onSuccess(res, 200, "All todos Successfully deleted");
+    } catch (err) {
+      return onServerError(res, err);
+    }
+  }
+
   /**
    * This is a function.
    *

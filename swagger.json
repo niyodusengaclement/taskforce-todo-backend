@@ -248,6 +248,48 @@
             "headers": {}
           }
         }
+      },
+      "delete": {
+        "description": "",
+        "summary": "Delete All Todos",
+        "tags": [
+          "Todos"
+        ],
+        "operationId": "DeleteAllTodos",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-auth-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": " Action was successful completed",
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad request",
+            "headers": {}
+          },
+          "401": {
+            "description": "You are not authorized to access this page",
+            "headers": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "headers": {}
+          }
+        }
       }
     },
     "/todos/search": {

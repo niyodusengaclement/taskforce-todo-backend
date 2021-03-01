@@ -8,7 +8,6 @@ import helpers from "../../src/utils/helpers";
 import TodosController from "../../src/controllers/todosController";
 import httpMocks from "node-mocks-http";
 import csvGenerator from "../../src/utils/csvGenerator";
-import { onServerError } from "../../src/utils/response";
 
 chai.use(http);
 
@@ -193,6 +192,23 @@ describe("Todo API", async () => {
 
     request(app)
       .delete("/api/todos/1")
+      .set("x-auth-token", token)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+      });
+  });
+
+  it("User Should be able to delete all his/her todos", async () => {
+    const userSchema = {
+      username: "Awesomity",
+      password: "AwesomityPassword",
+    };
+    const {
+      header: { "x-auth-token": token },
+    } = await request(app).post("/api/auth/login").send(userSchema);
+
+    request(app)
+      .delete("/api/todos")
       .set("x-auth-token", token)
       .end((err, res) => {
         expect(res).to.have.status(200);
